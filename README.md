@@ -13,7 +13,7 @@ yarn start
 yarn build
 
 # build for production and view the bundle analyzer report
-yarn build --report
+yarn analyze
 
 # deploy
 yarn deploy

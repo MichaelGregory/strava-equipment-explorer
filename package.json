@@ -12,7 +12,8 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "build": "node build/build.js",
-    "deploy": "./scripts/deploy-github-pages.sh"
+    "deploy": "./scripts/deploy-github-pages.sh",
+    "analyze": "npm run build --report"
   },
   "dependencies": {
     "vue": "^2.5.2",
