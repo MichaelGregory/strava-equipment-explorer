@@ -12,7 +12,7 @@ set -o
 TARGET_DEPLOYMENT_BRANCH='gh-pages'
 DISTRIBUTION_DIRECTORY='dist'
 
-npm run build
+yarn build
 
 # Check if there are any changes which might need to be commited and prevent deployment
 # http://stackoverflow.com/questions/5139290/how-to-check-if-theres-nothing-to-be-committed-in-the-current-branch
@@ -29,7 +29,7 @@ fi
 git subtree split --prefix ${DISTRIBUTION_DIRECTORY} -b ${TARGET_DEPLOYMENT_BRANCH}
 
 # Becuase this is a 'force push' the branch must not be 'protected'
-git push -f origin ${TARGET_DEPLOYMENT_BRANCH}:${TARGET_DEPLOYMENT_BRANCH}
+git push -f origin ${TARGET_DEPLOYMENT_BRANCH}
 
 # Remove the branch locally as its not needed.
 # Deployment is simplified by re-creating the force pushing the branch
