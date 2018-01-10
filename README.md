@@ -1,6 +1,4 @@
-# vue
-
-> strava-equipment-explorer
+# [strava-equipment-explorer](http://michaelgregory.github.io/strava-equipment-explorer)
 
 ## Build Setup
 
