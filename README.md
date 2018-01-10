@@ -15,8 +15,11 @@ yarn build
 # build for production and view the bundle analyzer report
 yarn analyze
 
-# deploy
+# deploy to github pages
 yarn deploy
+
+# run production build
+yarn serve
 
 # run unit tests
 yarn test

@@ -13,9 +13,12 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "build": "node build/build.js",
     "deploy": "./scripts/deploy-github-pages.sh",
-    "analyze": "npm run build --report"
+    "analyze": "npm run build --report",
+    "serve": "node server.js"
   },
   "dependencies": {
+    "axios": "^0.17.1",
+    "express": "^4.16.2",
     "vue": "^2.5.2",
     "vue-material": "^1.0.0-beta-7",
     "vue-router": "^3.0.1",

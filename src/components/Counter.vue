@@ -1,5 +1,5 @@
 <template>
-  <div class="cotainer">
+  <div class="container">
     <div class="notification">
       <h1 class="title" align="center">
         {{ count }}
