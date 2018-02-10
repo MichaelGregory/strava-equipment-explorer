@@ -23,10 +23,13 @@
       authenticationTokenExchange (code) {
         authenticationTokenExchange(code)
           .then(response => {
-            let athlete = response.data
+            let { access_token } = response.data
+            console.log(store)
+            console.log(store.dispatch)
+            debugger
             store.dispatch({
-              type: type.SetAthlete,
-              athlete
+              type: `authentication/${type.SetAuthentication}`,
+              access_token
             }).then(() => {
               this.$router.replace('/')
             })

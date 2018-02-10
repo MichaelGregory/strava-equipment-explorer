@@ -1,71 +1,20 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { loadState, storeState } from '../utils/state'
+import athlete from './modules/athlete'
+import authentication from './modules/authentication'
+
 Vue.use(Vuex)
 
-const LOCAL_STORAGE_KEY = 'strava-equipment-explorer'
-
-function storeState (state) {
-  window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state))
-}
-
-function loadState (store) {
-  let state = window.localStorage.getItem(LOCAL_STORAGE_KEY)
-  if (!state) {
-    return
-  }
-
-  store.replaceState(JSON.parse(state))
-  return store
-}
-
 const store = new Vuex.Store({
+  modules: {
+    athlete,
+    authentication
+  },
   state: {
-    count: 0,
-    athlete: null
-  },
-  mutations: {
-    increment (state, payload) {
-      let count = state.count + payload.amount
-      state.count = count
-      storeState(state)
-      return count
-    },
-    decrement (state, payload) {
-      let count = state.count - payload.amount
-      if (count > 0) {
-        count = 0
-      }
-      state.count = count
-      storeState(state)
-      return count
-    },
-    setAthlete (state, payload) {
-      let {athlete} = payload
-      state.athlete = athlete
-      storeState(state)
-      return athlete
-    },
-    setAuthenticated (state, payload) {
-      let {authenticated} = payload
-      state.authenticated = authenticated
-      storeState(state)
-      return authenticated
-    }
-  },
-  actions: {
-    increment (context, payload) {
-      context.commit('increment', payload)
-    },
-    decrement (context, payload) {
-      context.commit('decrement', payload)
-    },
-    setAthlete (context, payload) {
-      context.commit('setAthlete', payload)
-    },
-    setAuthenticated (context, payload) {
-      context.commit('setAuthenticated', payload)
-    }
+    count: 0
   }
 })
+
 export default store
-export {store, loadState}
+export {store, loadState, storeState}

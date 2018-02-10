@@ -11,16 +11,16 @@ function logIn () {
 
 function logOut () {
   const url = ''
-  return dataClient.get(url).then(response => response.data)
+  return dataClient.get(url)
 }
 
 function authenticationTokenExchange (code) {
   const url = '/oauth/token'
   const params = {
+    client_id: apiClientId,
     client_secret: apiClientSecret,
     code
   }
-
   return dataClient.post(url, params)
 }
 
